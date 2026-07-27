@@ -1,9 +1,11 @@
+# TC=O((2**t) * k) where t is the number of times a single element can be used
+# SC=O(2**t) stackspace plus O(k) which is the length of subsets; ignoring result list
 class Solution:
     def solve(self,ind,candidates,target,total,subset,result):
         if ind==len(candidates):
             return
         elif total==target:
-            result.append(subset.copy())
+            result.append(subset.copy())  #TC=O(K) where k is the avg length of an answer
             return
         elif total>target:
             return 
