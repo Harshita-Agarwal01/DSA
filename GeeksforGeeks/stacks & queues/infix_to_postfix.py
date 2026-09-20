@@ -1,3 +1,4 @@
+# TC=0(n)+0(n)  SC=0(n)+0(n)
 class Solution:
     def precedence(self, ch):
         if ch == "+" or ch == "-":
@@ -10,15 +11,15 @@ class Solution:
 
     def infixToPostfix(self, s):
         # code here
-        stack = []
-        result = []
-        for char in s:
+        stack = []  # SC=O(n)
+        result = []  # SC=O(n) bcz it is not the final ans as we join it
+        for char in s:  # TC=O(n)
             if char == "(":
                 stack.append(char)
             elif char.isalnum():
                 result.append(char)
             elif char == ")":
-                while stack and stack[-1] != "(":
+                while stack and stack[-1] != "(":  # all while loops combined= TC=O(n)
                     result.append(stack.pop())
                 if stack and stack[-1] == "(":
                     stack.pop()
